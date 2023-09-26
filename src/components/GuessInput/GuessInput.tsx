@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 const GuessInput = ({}) => {
-  const [input, setInput] = useState<string>("");
+  const [guess, setGuess] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(input.toUpperCase());
-    setInput("");
+    console.log(guess.toUpperCase());
+    setGuess("");
   };
 
   return (
@@ -18,10 +18,11 @@ const GuessInput = ({}) => {
       <input
         id="guess-input"
         type="text"
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-        pattern="[a-fA-f0-9]{6}"
+        value={guess}
+        onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        pattern="[a-fA-F0-9]{6}"
         title="6 character HEX color (FF22CC)"
+        maxLength={6}
       />
     </form>
   );
