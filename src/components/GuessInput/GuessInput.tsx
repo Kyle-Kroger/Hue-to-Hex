@@ -16,6 +16,7 @@ const GuessInput = ({}) => {
     >
       <label htmlFor="guess-input">Enter a HEX Color:</label>
       <input
+        required
         id="guess-input"
         type="text"
         value={guess}
@@ -23,6 +24,7 @@ const GuessInput = ({}) => {
         pattern="[a-fA-F0-9]{6}"
         title="6 character HEX color (FF22CC)"
         maxLength={6}
+        minLength={6}
       />
     </form>
   );
