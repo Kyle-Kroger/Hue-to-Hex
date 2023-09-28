@@ -1,11 +1,15 @@
 import { useState } from "react";
 
-const GuessInput = ({}) => {
+interface Props {
+  handleAddGuess: (guess: string) => void;
+}
+
+const GuessInput = ({ handleAddGuess }: Props) => {
   const [guess, setGuess] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(guess.toUpperCase());
+    handleAddGuess(guess);
     setGuess("");
   };
 
