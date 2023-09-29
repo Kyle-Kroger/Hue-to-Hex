@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
+import { IGuess } from "@/src/types";
 
 import { GuessBoard } from "../GuessBoard";
 import { GuessInput } from "../GuessInput";
@@ -14,9 +15,9 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guessArray, setGuessArray] = useState<string[]>([]);
+  const [guessArray, setGuessArray] = useState<IGuess[]>([]);
 
-  const handleAddGuess = (newGuess: string) => {
+  const handleAddGuess = (newGuess: IGuess) => {
     if (guessArray.length < 6) {
       setGuessArray((prev) => [...prev, newGuess]);
     } else {

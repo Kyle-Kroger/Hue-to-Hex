@@ -78,7 +78,7 @@ h1 {
   padding: var(--game-spacing) 32px;
   margin: 0 auto;
   min-width: 250px;
-  max-width: min(500px, 58vh, 100%);
+  max-width: min(600px, 58vh, 100%);
 }
 
 .guess-results {
@@ -88,15 +88,9 @@ h1 {
   justify-content: center;
 }
 
-.guess {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 4px;
-}
-
 .cell {
   position: relative;
-  width: 20%;
+  width: calc(100% / 6);
   display: grid;
   place-content: center;
   aspect-ratio: 1 / 1;

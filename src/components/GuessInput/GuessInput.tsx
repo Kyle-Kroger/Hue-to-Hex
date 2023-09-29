@@ -1,7 +1,8 @@
+import { IGuess } from "@/src/types";
 import { useState } from "react";
 
 interface Props {
-  handleAddGuess: (guess: string) => void;
+  handleAddGuess: (guess: IGuess) => void;
 }
 
 const GuessInput = ({ handleAddGuess }: Props) => {
@@ -9,7 +10,10 @@ const GuessInput = ({ handleAddGuess }: Props) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    handleAddGuess(guess);
+    //TODO: Convert to hsl
+    //TODO: Calculate contrast
+    const newGuess: IGuess = { hex: guess, hsl: "TODO", textColor: "#000" };
+    handleAddGuess(newGuess);
     setGuess("");
   };
 
