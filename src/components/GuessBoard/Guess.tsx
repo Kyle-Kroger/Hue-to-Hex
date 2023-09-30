@@ -24,6 +24,7 @@ const Guess = ({ guess, type }: Props) => {
     <div className={styles.guess}>
       {range(6).map((i) => (
         <span
+          key={i}
           className="cell"
           style={{ color: guess ? guess.textColor : "#000" }}
         >

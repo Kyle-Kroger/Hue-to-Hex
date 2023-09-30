@@ -1,4 +1,5 @@
 import { IGuess } from "@/src/types";
+import { getContrastYIQ, hexToHSL } from "@/src/utils";
 import { useState } from "react";
 
 interface Props {
@@ -6,15 +7,21 @@ interface Props {
 }
 
 const GuessInput = ({ handleAddGuess }: Props) => {
-  const [guess, setGuess] = useState<string>("");
+  const [guessHex, setGuessHex] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     //TODO: Convert to hsl
-    //TODO: Calculate contrast
-    const newGuess: IGuess = { hex: guess, hsl: "TODO", textColor: "#000" };
+    const hsl = hexToHSL(`#${guessHex}`);
+    const contrastColor = getContrastYIQ(guessHex);
+    const newGuess: IGuess = {
+      hex: guessHex,
+      hsl,
+      textColor: contrastColor,
+    };
+    console.log(newGuess);
     handleAddGuess(newGuess);
-    setGuess("");
+    setGuessHex("");
   };
 
   return (
@@ -27,8 +34,8 @@ const GuessInput = ({ handleAddGuess }: Props) => {
         required
         id="guess-input"
         type="text"
-        value={guess}
-        onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        value={guessHex}
+        onChange={(event) => setGuessHex(event.target.value.toUpperCase())}
         pattern="[a-fA-F0-9]{6}"
         title="6 character HEX color (FF22CC)"
         maxLength={6}
