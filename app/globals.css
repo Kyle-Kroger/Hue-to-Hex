@@ -140,6 +140,7 @@ h1 {
 
 .guess-input-wrapper {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 8px;
   height: 6.75rem;
@@ -156,7 +157,17 @@ h1 {
   border: 2px solid var(--color-gray-300);
   border-radius: 4px;
   padding: 8px 16px;
+  padding-left: 48px;
   outline-offset: 4px;
+}
+
+/* The hashtag within the guess input */
+.guess-input-wrapper::after {
+  content: "#";
+  font-size: 32px;
+  position: absolute;
+  top: 48px;
+  left: 16px;
 }
 
 .banner {
