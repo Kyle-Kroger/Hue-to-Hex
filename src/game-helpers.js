@@ -53,7 +53,3 @@ export function checkGuess(guess, answer) {
 
   return result;
 }
-
-//Convert HEX to HSL
-
-//Get Random Color
