@@ -1,9 +1,9 @@
-import { IGuess } from "@/src/types";
+import { IColor } from "@/src/types";
 import styles from "./guess.module.css";
 import { range } from "@/src/utils";
 
 interface Props {
-  guess: IGuess;
+  guess: IColor;
   type: string;
 }
 

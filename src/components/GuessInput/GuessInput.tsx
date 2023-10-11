@@ -1,9 +1,9 @@
-import { IGuess } from "@/src/types";
+import { IColor } from "@/src/types";
 import { getContrastYIQ, hexToHSL } from "@/src/utils";
 import { useState } from "react";
 
 interface Props {
-  handleAddGuess: (guess: IGuess) => void;
+  handleAddGuess: (guess: IColor) => void;
 }
 
 const GuessInput = ({ handleAddGuess }: Props) => {
@@ -14,7 +14,7 @@ const GuessInput = ({ handleAddGuess }: Props) => {
     //TODO: Convert to hsl
     const hsl = hexToHSL(`#${guessHex}`);
     const contrastColor = getContrastYIQ(guessHex);
-    const newGuess: IGuess = {
+    const newGuess: IColor = {
       hex: guessHex,
       hsl,
       textColor: contrastColor,

@@ -1,9 +1,9 @@
-import { IGuess } from "@/src/types";
+import { IColor } from "@/src/types";
 import Guess from "./Guess";
 import { range } from "@/src/utils";
 
 interface Props {
-  guesses: IGuess[];
+  guesses: IColor[];
 }
 
 const GuessBoard = ({ guesses }: Props) => {

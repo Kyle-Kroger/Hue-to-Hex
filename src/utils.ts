@@ -1,8 +1,14 @@
-export const sample = (arr) => {
+import { IColor, Ihsl } from "./types";
+
+export const sample = (arr: []) => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
-export const range = (start, end, step = 1) => {
+export const range = (
+  start: number,
+  end: number | undefined = undefined,
+  step = 1
+) => {
   let output = [];
   if (typeof end === "undefined") {
     end = start;
@@ -15,7 +21,7 @@ export const range = (start, end, step = 1) => {
 };
 
 //Calulate color contrast
-export const getContrastYIQ = (hexcolor) => {
+export const getContrastYIQ = (hexcolor: string) => {
   let r = parseInt(hexcolor.substr(0, 2), 16);
   let g = parseInt(hexcolor.substr(2, 2), 16);
   let b = parseInt(hexcolor.substr(4, 2), 16);
@@ -26,11 +32,11 @@ export const getContrastYIQ = (hexcolor) => {
 };
 
 //Convert HEX to HSL (wants hex value with # sign)
-export const hexToHSL = (H) => {
+export const hexToHSL = (H: string): Ihsl => {
   // Convert hex to RGB first
-  let r = 0,
-    g = 0,
-    b = 0;
+  let r: any = 0,
+    g: any = 0,
+    b: any = 0;
   if (H.length == 4) {
     r = "0x" + H[1] + H[1];
     g = "0x" + H[2] + H[2];
@@ -78,11 +84,13 @@ export const hexToHSL = (H) => {
   s = +(s * 100).toFixed(0);
   l = +(l * 100).toFixed(0);
 
-  return "hsl(" + h + "," + s + "%," + l + "%)";
+  return { hue: h, saturation: s, lightness: l };
 };
 
 //Get Random Color
-export const getRandomColor = () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  return randomColor;
+export const getRandomColor = (): IColor => {
+  const hex = Math.floor(Math.random() * 16777215).toString(16);
+  const hsl = hexToHSL(`#${hex}`);
+  const textColor = getContrastYIQ(hex);
+  return { hex, hsl, textColor };
 };

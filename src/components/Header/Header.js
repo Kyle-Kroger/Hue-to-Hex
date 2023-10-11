@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <h1>Guess the Color!</h1>
+      <h1>Hue to Hex</h1>
     </header>
   );
 }
