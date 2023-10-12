@@ -89,7 +89,10 @@ export const hexToHSL = (H: string): Ihsl => {
 
 //Get Random Color
 export const getRandomColor = (): IColor => {
-  const hex = Math.floor(Math.random() * 16777215).toString(16);
+  const hex = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")
+    .toUpperCase();
   const hsl = hexToHSL(`#${hex}`);
   const textColor = getContrastYIQ(hex);
   return { hex, hsl, textColor };

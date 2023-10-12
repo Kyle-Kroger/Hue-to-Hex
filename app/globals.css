@@ -4,6 +4,7 @@
 html {
   --game-spacing: 32px;
   --header-height: 4rem;
+  --radius: 4px;
 
   --color-success: hsl(150deg 70% 30%);
   --color-warning: hsl(50deg 100% 30%);

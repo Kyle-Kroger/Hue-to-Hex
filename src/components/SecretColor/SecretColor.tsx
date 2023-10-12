@@ -9,8 +9,12 @@ interface Props {
 const SecretColor = ({ randomColor }: Props) => {
   const { hue, saturation, lightness } = randomColor.hsl;
   console.log(randomColor);
+  const colorStyle = {
+    color: randomColor.textColor,
+    backgroundColor: `#${randomColor.hex}`,
+  };
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} style={colorStyle}>
       <h2>Can you guess the HEX of this color?</h2>
       <p>{`hue:${hue}, staturation:${saturation}%, lightness:${lightness}%`}</p>
     </div>

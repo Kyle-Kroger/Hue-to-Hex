@@ -31,6 +31,10 @@ function Game() {
       //todo
       //end game flag
     }
+    console.log(newGuess.hex, randomColor.hex);
+    if (newGuess.hex === randomColor.hex) {
+      alert("you got the color!");
+    }
   };
 
   return (
