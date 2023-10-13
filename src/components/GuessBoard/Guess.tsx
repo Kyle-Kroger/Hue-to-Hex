@@ -1,9 +1,9 @@
-import { IGuess } from "@/src/types";
+import { IColor } from "@/src/types";
 import styles from "./guess.module.css";
 import { range } from "@/src/utils";
 
 interface Props {
-  guess: IGuess;
+  guess: IColor;
   type: string;
 }
 
@@ -15,7 +15,9 @@ const Guess = ({ guess, type }: Props) => {
   if (type === "hsl") {
     return (
       <p className={styles.hslGuess} style={guessStyle}>
-        {guess ? guess.hex : ""}
+        {guess
+          ? `H: ${guess.hsl.hue} S: ${guess.hsl.saturation} L:${guess.hsl.lightness}`
+          : ""}
       </p>
     );
   }
@@ -23,11 +25,7 @@ const Guess = ({ guess, type }: Props) => {
   return (
     <div className={styles.guess}>
       {range(6).map((i) => (
-        <span
-          key={i}
-          className="cell"
-          style={{ color: guess ? guess.textColor : "#000" }}
-        >
+        <span key={i} className="cell">
           {guess ? guess.hex[i] : ""}
         </span>
       ))}
