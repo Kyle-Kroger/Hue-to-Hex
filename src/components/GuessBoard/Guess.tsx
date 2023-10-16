@@ -1,35 +1,40 @@
-import { IColor } from "@/src/types";
+import { IColor, ICheckedCharacter } from "@/src/types";
 import styles from "./guess.module.css";
+import { checkGuess } from "../../game-helpers";
 import { range } from "@/src/utils";
+import GuessCell from "./GuessCell";
 
 interface Props {
   guess: IColor;
-  type: string;
+  secretColorHex: string;
 }
 
-const Guess = ({ guess, type }: Props) => {
+const Guess = ({ guess, secretColorHex }: Props) => {
   const guessStyle = {
     backgroundColor: `#${guess ? guess.hex : "#FFF"}`,
     color: guess ? guess.textColor : "#000",
   };
-  if (type === "hsl") {
-    return (
+
+  let checkedGuess: ICheckedCharacter[] | null = null;
+  if (guess) {
+    checkedGuess = checkGuess(guess.hex, secretColorHex);
+  }
+
+  return (
+    <>
       <p className={styles.hslGuess} style={guessStyle}>
         {guess
           ? `H: ${guess.hsl.hue} S: ${guess.hsl.saturation} L:${guess.hsl.lightness}`
           : ""}
       </p>
-    );
-  }
-
-  return (
-    <div className={styles.guess}>
-      {range(6).map((i) => (
-        <span key={i} className="cell">
-          {guess ? guess.hex[i] : ""}
-        </span>
-      ))}
-    </div>
+      <div className={styles.guess}>
+        {range(6).map((i) => {
+          const character = guess ? guess.hex.split("")[i] : "";
+          const status = checkedGuess ? checkedGuess[i].status : "";
+          return <GuessCell key={i} character={character} status={status} />;
+        })}
+      </div>
+    </>
   );
 };
 

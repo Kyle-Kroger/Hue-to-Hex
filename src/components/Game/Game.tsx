@@ -42,7 +42,7 @@ function Game() {
       {randomColor.hex !== "noColor" && (
         <>
           <SecretColor randomColor={randomColor} />
-          <GuessBoard guesses={guessArray} />
+          <GuessBoard guesses={guessArray} secretColorHex={randomColor.hex} />
           <GuessInput handleAddGuess={handleAddGuess} />
         </>
       )}

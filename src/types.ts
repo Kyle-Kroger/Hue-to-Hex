@@ -12,3 +12,8 @@ export interface IColor {
   hsl: Ihsl;
   textColor: string;
 }
+
+export interface ICheckedCharacter {
+  letter: string;
+  status: string;
+}
