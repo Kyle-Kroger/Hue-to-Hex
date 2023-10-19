@@ -51,7 +51,7 @@ function Game() {
         <>
           <SecretColor randomColor={randomColor} />
           <GuessBoard guesses={guessArray} secretColorHex={randomColor.hex} />
-          <GuessInput handleAddGuess={handleAddGuess} />
+          <GuessInput gameStatus={status} handleAddGuess={handleAddGuess} />
           {status === STATUS.WON && (
             <WonBanner numGuesses={guessArray.length} />
           )}
