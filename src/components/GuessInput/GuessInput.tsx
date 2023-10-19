@@ -1,12 +1,14 @@
+import { STATUS } from "@/src/constants";
 import { IColor } from "@/src/types";
 import { getContrastYIQ, hexToHSL } from "@/src/utils";
 import { useState } from "react";
 
 interface Props {
   handleAddGuess: (guess: IColor) => void;
+  gameStatus: string;
 }
 
-const GuessInput = ({ handleAddGuess }: Props) => {
+const GuessInput = ({ handleAddGuess, gameStatus }: Props) => {
   const [guessHex, setGuessHex] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -32,6 +34,7 @@ const GuessInput = ({ handleAddGuess }: Props) => {
       <label htmlFor="guess-input">Enter a HEX Color:</label>
       <input
         required
+        disabled={gameStatus !== STATUS.ONGOING}
         id="guess-input"
         type="text"
         value={guessHex}

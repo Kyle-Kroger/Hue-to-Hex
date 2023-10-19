@@ -1,5 +1,11 @@
 export const NUM_OF_GUESSES_ALLOWED = 5;
 
+export enum STATUS {
+  WON = "won",
+  LOST = "lost",
+  ONGOING = "ongoing",
+}
+
 export const BREAKPOINTS = {
   phoneMax: 550,
   tabletMax: 1100,

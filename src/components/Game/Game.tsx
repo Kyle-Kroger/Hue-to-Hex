@@ -9,6 +9,8 @@ import { GuessInput } from "../GuessInput";
 import { SecretColor } from "../SecretColor";
 import { getRandomColor } from "@/src/utils";
 import { LoadingSpinner } from "../UI";
+import { STATUS, NUM_OF_GUESSES_ALLOWED } from "@/src/constants";
+import { LostBanner, WonBanner } from "../Banner";
 
 const initColor: IColor = {
   hex: "noColor",
@@ -19,21 +21,27 @@ const initColor: IColor = {
 function Game() {
   const [guessArray, setGuessArray] = useState<IColor[]>([]);
   const [randomColor, setRandomColor] = useState<IColor>(initColor);
+  const [status, setStatus] = useState(STATUS.ONGOING);
 
   useEffect(() => {
     setRandomColor(getRandomColor());
   }, []);
 
   const handleAddGuess = (newGuess: IColor) => {
-    if (guessArray.length < 6) {
-      setGuessArray((prev) => [...prev, newGuess]);
-    } else {
-      //todo
-      //end game flag
+    const newGuessArray = [...guessArray, newGuess];
+    if (newGuessArray.length <= NUM_OF_GUESSES_ALLOWED) {
+      setGuessArray(newGuessArray);
     }
     console.log(newGuess.hex, randomColor.hex);
     if (newGuess.hex === randomColor.hex) {
-      alert("you got the color!");
+      setStatus(STATUS.WON);
+    }
+
+    if (
+      newGuess.hex !== randomColor.hex &&
+      newGuessArray.length === NUM_OF_GUESSES_ALLOWED
+    ) {
+      setStatus(STATUS.LOST);
     }
   };
 
@@ -43,7 +51,11 @@ function Game() {
         <>
           <SecretColor randomColor={randomColor} />
           <GuessBoard guesses={guessArray} secretColorHex={randomColor.hex} />
-          <GuessInput handleAddGuess={handleAddGuess} />
+          <GuessInput gameStatus={status} handleAddGuess={handleAddGuess} />
+          {status === STATUS.WON && (
+            <WonBanner numGuesses={guessArray.length} />
+          )}
+          {status === STATUS.LOST && <LostBanner answer={randomColor.hex} />}
         </>
       )}
       {randomColor.hex === "noColor" && <LoadingSpinner />}
