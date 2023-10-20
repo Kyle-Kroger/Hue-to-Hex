@@ -16,7 +16,7 @@ const SecretColor = ({ randomColor }: Props) => {
   return (
     <div className={styles.wrapper} style={colorStyle}>
       <h2>Can you guess the HEX of this color?</h2>
-      <p>{`hue:${hue}, staturation:${saturation}%, lightness:${lightness}%`}</p>
+      <p>{`hue: ${hue} | staturation: ${saturation}% | lightness: ${lightness}%`}</p>
     </div>
   );
 };

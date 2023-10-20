@@ -1,9 +1,18 @@
 import "./reset.css";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Merienda, Lora } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const merienda = Merienda({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-merienda",
+});
+const lora = Lora({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-Lora",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${merienda.variable} ${lora.className}`}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  min-height: var(--header-height);
+  border-bottom: 1px solid var(--color-gray-700);
+  font-family: var(--font-merienda);
+  font-weight: 700;
+  color: black;
+  background-image: linear-gradient(
+    90deg,
+    hsl(1deg 99% 43%) 0%,
+    hsl(12deg 94% 45%) 7%,
+    hsl(23deg 89% 46%) 14%,
+    hsl(33deg 84% 48%) 20%,
+    hsl(44deg 79% 50%) 27%,
+    hsl(57deg 80% 50%) 33%,
+    hsl(70deg 83% 50%) 38%,
+    hsl(83deg 86% 49%) 44%,
+    hsl(96deg 88% 49%) 50%,
+    hsl(119deg 89% 50%) 55%,
+    hsl(151deg 88% 51%) 61%,
+    hsl(182deg 88% 53%) 66%,
+    hsl(214deg 86% 54%) 72%,
+    hsl(241deg 87% 54%) 77%,
+    hsl(255deg 90% 49%) 83%,
+    hsl(268deg 93% 45%) 89%,
+    hsl(282deg 97% 40%) 94%,
+    hsl(296deg 100% 36%) 100%
+  );
+}
+
+.wrapper .side {
+  width: var(--header-height);
+  display: grid;
+  place-content: center;
+}
