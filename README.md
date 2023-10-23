@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hue to Hex
 
-## Getting Started
+Welcome to Hue to Hex, where the vibrant world of colors comes alive through your screen! In this exciting and visually stimulating game, your color knowledge will be put to the test.
 
-First, run the development server:
+'Hue to Hex' provides an educational and enjoyable way for users to explore color representations in the digital world while enhancing their knowledge of hex color codes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Link to project:** http://recruiters-love-seeing-live-demos.com/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![image of game in progress](public/img/readme-imgs/hue-to-hex.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Play
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Hue to Hex is an interactive web-based color game that leverages the power of web technologies to engage and challenge users with a test of their color identification skills. Built using React and TypeScript, this game presents players with a visual representation of a color based on its hue, saturation, and lightness (HSL) values. Players are then tasked with entering the correct hexadecimal (hex) color code that matches the displayed color.
 
-## Learn More
+Each time you guess you will be given, visually, the color you just guessed and a wordle like repreentation of the characters in the HEX code guessed.
 
-To learn more about Next.js, take a look at the following resources:
+- Grey background characters are not in the secret hex
+- Yellow background characters are within the hex but not in the correct location
+- Green characters are in the correct location within the hex
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How It's Made:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Tech used:** HTML, CSS, TypeScript, React
 
-## Deploy on Vercel
+The game employs a combination of DOM manipulation and CSS styles using React to dynamically render colors and provide real-time feedback to the player. A random HSL value is generated for each round, and the corresponding color is displayed within a user-friendly interface. A text input field allows players to enter their best guess for the hex color code, and upon submission, the game checks the accuracy of the response.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Something I learned
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Optimizations
+
+- Add in animations for when the color is guessed
+- Add in difficulty levels and time limits
+
+## Lessons Learned:
+
+This project was a really great way for me to better understand on how typescript works.
