@@ -12,7 +12,7 @@ Welcome to Hue to Hex, where the vibrant world of colors comes alive through you
 
 Hue to Hex is an interactive web-based color game that leverages the power of web technologies to engage and challenge users with a test of their color identification skills. Built using React and TypeScript, this game presents players with a visual representation of a color based on its hue, saturation, and lightness (HSL) values. Players are then tasked with entering the correct hexadecimal (hex) color code that matches the displayed color.
 
-Each time you guess you will be given, visually, the color you just guessed and a wordle like repreentation of the characters in the HEX code guessed.
+Each time you guess you will be given, visually, the color you just guessed and a Wordle like representation of the characters in the HEX code guessed.
 
 - Grey background characters are not in the secret hex
 - Yellow background characters are within the hex but not in the correct location
@@ -59,4 +59,6 @@ function getContrastYIQ(hexColor){
 
 ## Lessons Learned:
 
-This project was a really great way for me to better understand on how typescript works.
+In this project I tried to focus on making sure that everything is typed well. Even in a smaller application like this I can see the value of having your props, state, returns, and function parameters typed. Color is an object in this app that is used almost everywhere. Knowing that whenever I used it that it would always have the correct properties made building the app a breeze.
+
+Its a little extra typing, but having the props and their types at the top made debugging smoother and just makes the code easier to read. The intellisense is vsCode probably saved about as much time as it took to add the types as well. I can say that for any future personal projects where it is possible I will be using TypeScript.
